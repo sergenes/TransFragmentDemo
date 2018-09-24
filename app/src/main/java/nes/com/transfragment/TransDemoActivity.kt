@@ -16,7 +16,7 @@ class TransDemoActivity : BaseTransActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_trans_demo)
 
-        fragmentManager.beginTransaction()
+        supportFragmentManager.beginTransaction()
                 .add(R.id.fragmentContainer, FirstFragment())
                 .commit()
     }
