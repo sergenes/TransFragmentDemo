@@ -36,7 +36,7 @@ class FirstFragment:BaseTransFragment() {
 
             showProgress()
             thread{
-                sleep(2000)
+                sleep(1000)
 
                 this.activity.runOnUiThread {
                     hideProgress()

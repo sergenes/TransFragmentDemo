@@ -1,6 +1,8 @@
 package nes.com.transfragment
 
+
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -8,12 +10,19 @@ import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import com.nes.transfragment.BaseTransFragment
-import kotlinx.android.synthetic.main.fragment_third.*
+import kotlinx.android.synthetic.main.fragment_first.*
+
+
+// TODO: Rename parameter arguments, choose names that match
+// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+private const val ARG_PARAM1 = "param1"
+private const val ARG_PARAM2 = "param2"
 
 /**
- * Created by sergenes on 10/10/17.
+ * A simple [Fragment] subclass.
+ *
  */
-class ThirdFragment : BaseTransFragment() {
+class OpenFragment : BaseTransFragment() {
 
     override fun onCreateAnimation(transit: Int, enter: Boolean, nextAnim: Int): Animation {
 
@@ -40,17 +49,21 @@ class ThirdFragment : BaseTransFragment() {
         return anim
     }
 
+    override fun getAnimationType(): BaseTransFragment.AnimationType {
+        return BaseTransFragment.AnimationType.SLIDE_VERTICAL
+    }
+
     override fun getFragmentContainer(): Int {
         return R.id.fragmentContainer
     }
 
     override fun getBackFragmentClass(): Class<*> {
-        return SecondFragment::class.java
+        return ThirdFragment::class.java
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        var view: View? = inflater!!.inflate(R.layout.fragment_third, container, false)
+        var view: View? = inflater!!.inflate(R.layout.fragment_open, container, false)
 
         return view
     }
@@ -62,10 +75,8 @@ class ThirdFragment : BaseTransFragment() {
             performBack()
         }
 
-        openButton.setOnClickListener {
-            forwardToFragment(OpenFragment())
-        }
-
 
     }
+
+
 }
